@@ -22,11 +22,11 @@ public class Player : MonoBehaviour {
         {
             increaseExperiencePoints(10);
         }
-        Debug.Log("Test: exp: " + experiencePoints);
-        Debug.Log("Test: level: " + level);
+       // Debug.Log("Test: exp: " + experiencePoints);
+       // Debug.Log("Test: level: " + level);
     }
 
-    void increaseExperiencePoints(int expPoints)
+    public void increaseExperiencePoints(int expPoints)
     {
         experiencePoints += expPoints;
 
