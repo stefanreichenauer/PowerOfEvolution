@@ -83,6 +83,15 @@ public class Player : MonoBehaviour {
         skills.Add(skill);
     }
 
+	public bool HasRequirements(Skill skill) {
+		foreach (Skill s in skill.Requirements) {
+			if (!HasSkill (s.Name)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
     public bool HasSkill(string skillName)
     {
         foreach(Skill skill in skills)
