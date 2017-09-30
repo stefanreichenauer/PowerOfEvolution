@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
         transform.InverseTransformDirection(0, horizontal, 0);
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //Debug.Log("Test PlayerMovement: " + vertical);
        // Debug.Log("Test PlayerMovement: " + vertical);
-=======
+//=======
 
->>>>>>> 1f76c6ec6c2bd26997457372cc4a989bc46adc26
+//s>>>>>>> 1f76c6ec6c2bd26997457372cc4a989bc46adc26
         transform.Translate(0, 0, vertical);
 
         if(Input.GetAxis("Vertical") == 0)
