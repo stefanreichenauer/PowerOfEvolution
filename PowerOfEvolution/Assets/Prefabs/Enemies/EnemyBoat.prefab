@@ -170,13 +170,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4800574951482688}
-  - component: {fileID: 114047320072951054}
   - component: {fileID: 65032525410057964}
   - component: {fileID: 54404937670685562}
   - component: {fileID: 114223320042713818}
+  - component: {fileID: 114538852407951064}
   m_Layer: 0
   m_Name: EnemyBoat
-  m_TagString: Enemy
+  m_TagString: EnemyBoat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,21 +654,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114047320072951054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1777992257670272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870c4da8fabf7b247bb708c8dd74b230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  health: 100
-  experienceBase: 50
-  destruct: {fileID: 0}
 --- !u!114 &114223320042713818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -680,10 +665,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5884e1ba31f1e3c458b3caf6206a02b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agressive: 0
   angle_y_axis: 0
   velocity_vector_array:
   - 0
   - 0
   - 0
   - 0
-  Player: {fileID: 0}
+  Player: {fileID: 1239061558382734, guid: 511b6c23b19eaa74abf5a5bb43c22eda, type: 2}
+--- !u!114 &114538852407951064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777992257670272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b769b26a36ad54e40977439d5318a435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  experienceBase: 100
+  destruct: {fileID: 0}
+  spawnpoint: {fileID: 0}
