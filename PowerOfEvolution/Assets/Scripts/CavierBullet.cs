@@ -9,7 +9,7 @@ public class CavierBullet : MonoBehaviour {
         Debug.Log("CavierBullet collision");
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().decreaseHealth(10);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(10);
         }
         Destroy(gameObject);
     }

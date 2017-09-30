@@ -15,10 +15,15 @@ public class Player : MonoBehaviour {
 
     public UI ui;
 
+    PlayerAttack playerAttack;
+
     // Use this for initialization
     void Start () {
         skills.Add(new Skill(1, "Horns", null));
-	}
+
+        playerAttack = GetComponent<PlayerAttack>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -85,5 +90,16 @@ public class Player : MonoBehaviour {
         }
 
         return false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+            Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+        if (collision.gameObject.tag == "Enemy" && playerAttack.chargingAttack)
+        {
+            Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+            collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+            playerAttack.chargingAttack = false;
+        }
     }
 }

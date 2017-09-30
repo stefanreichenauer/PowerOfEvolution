@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     {
     }
 
-    public void decreaseHealth(int healthLoss)
+    public void takeDamage(int healthLoss)
     {
         health = Mathf.Max(0, health - healthLoss);
         Debug.Log("Enemy healthLoss: health - " + health);
