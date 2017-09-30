@@ -54,7 +54,7 @@ public class movement : MonoBehaviour {
         follow_vector[2] = Player.transform.position.z - this.transform.position.z;
         delta_Enemy_Player = Mathf.Sqrt(Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
             follow_vector[2] * follow_vector[2]))));
-        MonoBehaviour.print(delta_Enemy_Player);
+      //  MonoBehaviour.print(delta_Enemy_Player);
 
     }
 

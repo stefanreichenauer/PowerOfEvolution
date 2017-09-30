@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
 
     float timeBetweenCollisionDamage;
 
+    public bool colliding = false;
+
     // Use this for initialization
     void Start () {
         skills.Add(new Skill(1, "Horns", null));
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour {
         {
             takeDamage(10);
         }
-       // Debug.Log("Test: exp: " + experiencePoints);
+        Debug.Log("Test: coll: " + colliding);
        // Debug.Log("Test: level: " + level);
     }
 
@@ -98,6 +100,7 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        colliding = true;
             Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
         if (collision.gameObject.tag == "Enemy")
         {
@@ -112,5 +115,10 @@ public class Player : MonoBehaviour {
                 collision.gameObject.GetComponent<Enemy>().takeDamage(10);
             }
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        colliding = false;
     }
 }

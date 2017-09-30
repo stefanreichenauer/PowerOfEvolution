@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour {
 
     public Player player;
     public float chargingSpeed = 1f;
+    public float movementSpeed = 100f;
 
     public bool chargingAttack = false;
 
@@ -34,7 +35,7 @@ public class PlayerAttack : MonoBehaviour {
         if (player.HasSkill("Horns"))
         {
             if (Input.GetKeyDown(KeyCode.R))
-            {
+            {/*
                 //ChargingAttack();
                 chargingAttack = true;
                 startPos = transform.position;
@@ -42,9 +43,13 @@ public class PlayerAttack : MonoBehaviour {
                 
                 startTime = Time.time;
                 //journeyLength = Vector3.Distance(startPos, endPos);
+                */
+
+                float vertical = movementSpeed * Time.deltaTime;
+                transform.Translate(0, 0, vertical);
             }
         }
-
+        /*
         if (chargingAttack)
         {
             float distCovered = (Time.time - startTime) * speed;
@@ -57,7 +62,7 @@ public class PlayerAttack : MonoBehaviour {
            //     Debug.Log("Dist Pos: " + chargingAttack);
                 chargingAttack = false;
             }
-        }
+        }*/
     }
 
 
