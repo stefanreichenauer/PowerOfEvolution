@@ -167,6 +167,9 @@ public class Player : MonoBehaviour {
             gameObject.transform.rotation = secondLevelSpawn.rotation;
 
             GetComponent<Rigidbody>().useGravity = true;
+
+            GameObject crabSpawner = GameObject.FindGameObjectWithTag("CrabSpawner");
+            crabSpawner.GetComponent<CrabSpawner>().player = this;
         }
     }
 
