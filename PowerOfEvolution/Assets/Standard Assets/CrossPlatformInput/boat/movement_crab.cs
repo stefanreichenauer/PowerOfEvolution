@@ -132,29 +132,45 @@ public class movement_crab : MonoBehaviour
         else if (agressive == true)
         {
             calc_vector_tofollow();
+
             calc_direction_vector_y_axis();
-            betha =
-                Mathf.Acos(Convert.ToSingle(((float)
+            
+            if (betha > 0)
+            {
+                betha = betha - 1;
+                this.transform.Rotate(0, Convert.ToSingle((float)1), 0, Space.World);
+                angle_y_axis = angle_y_axis - 1;
+
+            }
+            else if (betha == 0)
+            {
+                betha =
+                (Mathf.Acos(Convert.ToSingle(((float)
                 velocity_vector_array[0] * follow_vector[0] + velocity_vector_array[2] * follow_vector[2])
                 /
                 (delta_Enemy_Player *
-                Mathf.Abs(Convert.ToSingle((float)
+                Mathf.Sqrt(Convert.ToSingle((float)
                             velocity_vector_array[0] * velocity_vector_array[0] +
                             velocity_vector_array[2] * velocity_vector_array[2]
                             )
                          )
                    )
                 )
-            );
-            betha_direction = (betha* degrees_to_radians / Mathf.Abs(Convert.ToSingle((float)betha* degrees_to_radians)));
-            // this.transform.Rotate(0, Convert.ToSingle((float)betha_direction), 0, Space.World);
-            MonoBehaviour.print(betha* degrees_to_radians);
-            //angle_y_axis = angle_y_axis + betha_direction;
-            var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 0.3),
-                    0,
-                    Convert.ToSingle((float)velocity_vector_array[0] * 0.3));
+            )) * degrees_to_radians;
+            
+            }
+            else if (betha < 0)
+            {
+                calc_vector_tofollow();
+
+                var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * -0.3),
+                     0,
+                        Convert.ToSingle((float)velocity_vector_array[0] * -0.3));
+                this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
+
+            }
+
             //move forward
-            this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
 
 
 
@@ -168,7 +184,7 @@ public class movement_crab : MonoBehaviour
     void Update()
     {
         moveit();
-       // MonoBehaviour.print(agressive);
+        MonoBehaviour.print(betha);
 
         if (delta_Enemy_Player < 40)
         {
