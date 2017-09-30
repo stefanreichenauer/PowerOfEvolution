@@ -6,16 +6,23 @@ public class CavierShooter : MonoBehaviour {
 
     public GameObject cavierPrefab;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    float lastShot;
+    public float cavierCooldown = 1.5f;
+
+    // Use this for initialization
+    void Start () {
+
+        lastShot = Time.time;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
+        if (Input.GetKeyDown(KeyCode.E) && (Time.time - lastShot > cavierCooldown))
         {
-            Vector3 newPos = gameObject.transform.position + gameObject.transform.forward;
+            lastShot = Time.time;
+               Vector3 newPos = gameObject.transform.position + gameObject.transform.forward;
              newPos.y += 3;
 
             GameObject cavierBullet = Instantiate(cavierPrefab, newPos, transform.rotation);

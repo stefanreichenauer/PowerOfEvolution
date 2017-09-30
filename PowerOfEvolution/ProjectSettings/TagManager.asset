@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - SkillTreeLine
+  - EnemyBoat
   layers:
   - Default
   - TransparentFX

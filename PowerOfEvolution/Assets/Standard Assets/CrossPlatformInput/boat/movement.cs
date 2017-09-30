@@ -8,7 +8,7 @@ using Random=UnityEngine.Random;
 public class movement : MonoBehaviour {
 
     // Use this for initialization
-    private bool agressive = false;
+    public bool agressive = false;
     private int current_move_time = 0;
     public double angle_y_axis = 0.0;
     public double[] velocity_vector_array = new double[] { 0.0, 0.0 ,0.0, 0.0};
@@ -52,21 +52,21 @@ public class movement : MonoBehaviour {
     {
         follow_vector[0] = Player.transform.position.x - this.transform.position.x;
         follow_vector[2] = Player.transform.position.z - this.transform.position.z;
-        delta_Enemy_Player = Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
-            follow_vector[2] * follow_vector[2])));
-        MonoBehaviour.print(delta_Enemy_Player);
+        delta_Enemy_Player = Mathf.Sqrt(Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
+            follow_vector[2] * follow_vector[2]))));
+      //  MonoBehaviour.print(delta_Enemy_Player);
 
     }
 
 
     void moveit()
     {
-        //todo = 1;
+        //todo = 3;
         
         if (agressive == false) {
             if (current_move_time < 0) {
                 todo = set_move();
-                int seconds = Random.Range(1, 2);
+                int seconds = Random.Range(1, 3);
                 current_move_time = 60*seconds;
 
 
@@ -100,18 +100,14 @@ public class movement : MonoBehaviour {
                 }
                 else if (todo == 3)
                 {
-
-
                     //create Vector
                     var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1]*0.1),
                     0,
                     Convert.ToSingle((float)velocity_vector_array[0]*0.1));
-                    //var velocity_vector = new Vector3(0f, 0f, -0.2f);
                     //move forward
                     this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
-                    //MonoBehaviour.print(this.transform.position);
-
                 }
+
             }
         }
         else if (agressive==true)
@@ -129,9 +125,8 @@ public class movement : MonoBehaviour {
                    )
                 )
             );
-            betha_direction = betha / Mathf.Abs(Convert.ToSingle((float)betha));
+            betha_direction = (betha / Mathf.Abs(Convert.ToSingle((float)betha)));
             //this.transform.Rotate(0, Convert.ToSingle((float)betha_direction), 0, Space.World);
-            //MonoBehaviour.print(betha_direction);
 
 
 
@@ -142,13 +137,15 @@ public class movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (delta_Enemy_Player<100)
-        {
-            agressive = false;
-        }
-        MonoBehaviour.print(delta_Enemy_Player);
-
         moveit();
+       // MonoBehaviour.print(agressive);
+
+        if (delta_Enemy_Player<20)
+        {
+            agressive = true;
+        }
+
+        
         
 	}
 }

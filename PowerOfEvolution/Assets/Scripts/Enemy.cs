@@ -7,12 +7,13 @@ public class Enemy : MonoBehaviour
     public Player player;
 
     public int health = 100;
-
+    public int experienceBase = 100;
+    
 
     // Use this for initialization
     void Start()
     {
-
+       // destruct = GetComponent<Destruction>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        player.increaseExperiencePoints(10);
+        player.increaseExperiencePoints(experienceBase);
         Destroy(gameObject);
 
     }

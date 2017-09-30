@@ -13,8 +13,14 @@ public class PlayerMovement : MonoBehaviour
        // transform.Rotate(0, horizontal, 0);
 
         transform.InverseTransformDirection(0, horizontal, 0);
-
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+
         transform.Translate(0, 0, vertical);
+
+        if(Input.GetAxis("Vertical") == 0)
+        {
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }
