@@ -149,6 +149,13 @@ public class movement_crab : MonoBehaviour
                 angle_y_axis = angle_y_axis - 1;
 
             }
+            else if (betha < -1)
+            {
+                betha = betha + 1;
+                this.transform.Rotate(0, Convert.ToSingle((float)-1), 0, Space.World);
+                angle_y_axis = angle_y_axis - 1;
+
+            }
             else if (betha == 0)
             {
                 calc_vector_tofollow();
@@ -162,10 +169,10 @@ public class movement_crab : MonoBehaviour
                 betha = Mathf.Acos(Convert.ToSingle((float)term)) * (180 / Math.PI);
                 if (this.transform.position.z < 0)
                 {
-                    betha += 90;
-                    if (this.transform.position.x < 0)
+                    betha += -90;
+                    if (this.transform.position.x > 0)
                     {
-                        betha += 180;
+                        betha =-(betha+ 90);
                     }
                 }
                 MonoBehaviour.print(betha);
@@ -173,7 +180,7 @@ public class movement_crab : MonoBehaviour
 
 
             }
-            else if (betha < 0)
+            else if (Mathf.Abs(Convert.ToSingle((float)betha)) < 1)
             {
                 calc_vector_tofollow();
                 v_1 = Convert.ToSingle((float)follow_vector[2] / Mathf.Abs(Convert.ToSingle((float)(follow_vector[2]))) * -0.3);
