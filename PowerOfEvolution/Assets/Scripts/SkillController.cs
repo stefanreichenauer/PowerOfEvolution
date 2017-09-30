@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillController : MonoBehaviour {
 	
@@ -13,14 +14,18 @@ public class SkillController : MonoBehaviour {
 
 	public Player player;
 
-	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		legs = new Skill(2, "legs", new Skill[] {});
 		hand = new Skill(4, "hand", new Skill[] { legs });
 		horns = new Skill(8, "horns", new Skill[] { legs });
 		spikes = new Skill(16, "spikes", new Skill[] { legs, hand, horns });
 		AllSkills = new Skill[] { legs, hand, horns, spikes };
+	}
+
+	// Use this for initialization
+	void Start () 
+	{
 	}
 	
 	// Update is called once per frame
@@ -29,20 +34,34 @@ public class SkillController : MonoBehaviour {
 		
 	}
 
+	// 0 for available
+	// -1 for unavailable
+	// 1 for active
+	public int skillAvailability(string skillName) {
+		Skill skill = FindSkillByName (skillName);
+		if (player.HasSkill (skill.Name)) {
+			return 1;
+		} else if (player.skillPoints > skill.RequiredSkillPoints && player.HasRequirements (skill)) {
+			return 0;
+		}
+
+		return -1;
+	}
+
 	public void buySkill(string skillName) 
 	{
 		Skill skill = FindSkillByName (skillName);
-		Debug.Log (skill.Name);
 		player.decreaseSkillPoints (skill.RequiredSkillPoints);
+		player.AddSkill (skill);
 		// TODO: change model
 		// TODO: skill specifics
 	}
 
 	public Skill FindSkillByName(string name) 
 	{
-		foreach (Skill skill in  AllSkills) 
+		foreach (Skill skill in AllSkills) 
 		{
-			if (name == skill.Name) 
+			if (name.Trim().ToLower() == skill.Name.Trim().ToLower()) 
 			{
 				return skill;
 			}

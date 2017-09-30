@@ -11,6 +11,10 @@ public class CavierBullet : MonoBehaviour {
         {
             collision.gameObject.GetComponent<Enemy>().takeDamage(10);
         }
+        if (collision.gameObject.tag == "EnemyBoat")
+        {
+            collision.gameObject.GetComponent<EnemyBoat>().takeDamage(10);
+        }
         Destroy(gameObject);
     }
 }

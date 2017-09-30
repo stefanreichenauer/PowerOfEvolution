@@ -37,16 +37,21 @@ public class Player : MonoBehaviour {
         {
             takeDamage(10);
         }
+<<<<<<< HEAD
 //<<<<<<< HEAD
         //Debug.Log("Test: coll: " + colliding);
 //=======
        // Debug.Log("Test: coll: " + colliding);
 //>>>>>>> d0c8388c34508e5d1e34fe2be51bf8afca30bf92
+=======
+
+>>>>>>> 1f76c6ec6c2bd26997457372cc4a989bc46adc26
        // Debug.Log("Test: level: " + level);
     }
 
     public void increaseExperiencePoints(int expPoints)
     {
+        Debug.Log("Player: IncreaseExperiencePoints: " + expPoints);
         experiencePoints += expPoints;
 
         if(experiencePoints >= levelThreshold)
@@ -88,6 +93,15 @@ public class Player : MonoBehaviour {
     {
         skills.Add(skill);
     }
+
+	public bool HasRequirements(Skill skill) {
+		foreach (Skill s in skill.Requirements) {
+			if (!HasSkill (s.Name)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
     public bool HasSkill(string skillName)
     {

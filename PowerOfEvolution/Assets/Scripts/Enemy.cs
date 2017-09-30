@@ -8,9 +8,7 @@ public class Enemy : MonoBehaviour
 
     public int health = 100;
     public int experienceBase = 100;
-
-    public Destruction destruct;
-
+    
 
     // Use this for initialization
     void Start()
@@ -36,16 +34,6 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         player.increaseExperiencePoints(experienceBase);
-        if(destruct != null)
-        {
-            destruct.destroyed = true;
-        }
-        else
-        {
-            Debug.Log("Enemy Destroy - ");
-            Destroy(gameObject);
-
-        }
         Destroy(gameObject);
 
     }
