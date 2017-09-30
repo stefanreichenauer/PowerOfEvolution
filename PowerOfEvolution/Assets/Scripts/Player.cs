@@ -165,6 +165,8 @@ public class Player : MonoBehaviour {
         {
             gameObject.transform.position = secondLevelSpawn.position;
             gameObject.transform.rotation = secondLevelSpawn.rotation;
+
+            GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
