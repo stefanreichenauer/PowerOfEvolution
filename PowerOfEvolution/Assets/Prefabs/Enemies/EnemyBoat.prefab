@@ -286,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777992257670272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -1.1, z: 81}
+  m_LocalPosition: {x: 203, y: -1.1, z: 232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115164903762308}
@@ -667,7 +667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   health: 100
-  experienceBase: 100
+  experienceBase: 50
+  destruct: {fileID: 0}
 --- !u!114 &114223320042713818
 MonoBehaviour:
   m_ObjectHideFlags: 1
