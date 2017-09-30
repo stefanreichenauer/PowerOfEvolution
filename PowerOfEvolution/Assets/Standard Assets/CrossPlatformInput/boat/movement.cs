@@ -8,7 +8,7 @@ using Random=UnityEngine.Random;
 public class movement : MonoBehaviour {
 
     // Use this for initialization
-    private bool agressive = false;
+    public bool agressive = false;
     private int current_move_time = 0;
     public double angle_y_axis = 0.0;
     public double[] velocity_vector_array = new double[] { 0.0, 0.0 ,0.0, 0.0};
@@ -144,7 +144,7 @@ public class movement : MonoBehaviour {
         moveit();
         MonoBehaviour.print(agressive);
 
-        if (delta_Enemy_Player<38)
+        if (delta_Enemy_Player<20)
         {
             agressive = true;
         }
