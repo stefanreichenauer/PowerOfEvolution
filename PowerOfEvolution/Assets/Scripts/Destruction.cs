@@ -24,7 +24,7 @@ public class Destruction : MonoBehaviour {
 
             GameObject stick2 = Instantiate(sticks, transform);
             
-            stick2.transform.Translate(new Vector3(3, 0, 5));
+            stick2.transform.Translate(new Vector3(8, 0, 0));
             stick2.transform.Rotate(new Vector3(0, 0, 40));
 
 
