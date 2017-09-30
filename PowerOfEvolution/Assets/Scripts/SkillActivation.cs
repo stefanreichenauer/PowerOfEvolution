@@ -30,17 +30,7 @@ public class SkillActivation : MonoBehaviour {
 		case 1:
 			// activated
 			changeButtonState(skillActive, false);
-			changeLineState (skillName);
 			break;
-		}
-	}
-
-	void changeLineState(string skillName) {
-		GameObject[] objects = GameObject.FindGameObjectsWithTag("SkillTreeLine");
-		foreach (GameObject object1 in objects) {
-			if (object1.name.ToLower ().StartsWith (skillName.ToLower ())) {
-				object1.GetComponent<Image> ().color = Color.yellow;
-			}
 		}
 	}
 

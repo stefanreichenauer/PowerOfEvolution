@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SkillTreeTest.unity
     guid: 5c81a7fdbf152344ab514f6711a381d8
+  - enabled: 1
+    path: Assets/Scenes/PrefabTest.unity
+    guid: 7ab0e57c759ab4c2e8ec61b20a896399
