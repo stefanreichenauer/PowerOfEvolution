@@ -40,9 +40,10 @@ public class CrabSpawner : MonoBehaviour {
     void spawnCrab()
     {
         GameObject randomSpawnpoint = getRandomSpawnpoint();
-        GameObject spawnedBoat = Instantiate(crab, randomSpawnpoint.transform);
-        spawnedBoat.GetComponent<EnemyCrab>().Construct(player, randomSpawnpoint, this);
-        activeCrabs.Add(spawnedBoat);
+        GameObject spawnedCrab = Instantiate(crab, randomSpawnpoint.transform);
+        spawnedCrab.GetComponent<EnemyCrab>().Construct(player, randomSpawnpoint, this);
+        spawnedCrab.GetComponent<movement_crab>().Player = player.gameObject;
+        activeCrabs.Add(spawnedCrab);
     }
 
     public void removeActiveCrab(GameObject destroyedCrab)
