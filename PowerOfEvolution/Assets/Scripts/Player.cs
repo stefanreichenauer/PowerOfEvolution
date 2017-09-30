@@ -43,6 +43,13 @@ public class Player : MonoBehaviour {
         ui.changeExperienceBar(levelThreshold, experiencePoints);
     }
 
+	public void decreaseSkillPoints(int skillPnts)
+	{
+		if (skillPoints - skillPnts >= 0) {
+			skillPoints -= skillPnts;
+		}
+	}
+
     public void takeDamage(int healthLoss)
     {
         health = Mathf.Max(0, health - healthLoss);

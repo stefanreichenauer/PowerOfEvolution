@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public int RequiredSkillPoints { get; set; }
+	public string Name { get; set; }
+	public Skill[] Requirements { get; set; }
+
+	public Skill () 
+	{
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public Skill(int requiredSkillPoints, string name, Skill[] requirements) 
+	{
+		this.RequiredSkillPoints = requiredSkillPoints;
+		this.Name = name;
+		this.Requirements = requirements;
 	}
 }

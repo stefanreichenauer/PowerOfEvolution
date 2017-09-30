@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour {
 
+	SkillController skillController;
+
+	void Start() 
+	{
+		skillController = GameObject.FindGameObjectWithTag ("SkillController").GetComponent<SkillController> ();
+	}
+
 	public void OnClick(string skillName) {
-		// change the model
-		// take the xp points from the player
+		skillController.buySkill(skillName);
 	}
 }
