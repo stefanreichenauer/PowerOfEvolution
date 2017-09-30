@@ -9,7 +9,7 @@ public class movement_crab : MonoBehaviour
 {
 
     // Use this for initialization
-    public bool agressive = true;
+    public bool agressive = false;
     private int current_move_time = 0;
     public double angle_y_axis = 0.0;
     public double[] velocity_vector_array = new double[] { 0.0, 0.0, 0.0, 0.0 };
@@ -24,6 +24,8 @@ public class movement_crab : MonoBehaviour
     private double a = 0;
     private double b = 0;
     private double term = 0;
+
+    private int distances = 15;
 
     private double v_1 = 0.0;
     private double v_2 = 0.0;
@@ -141,17 +143,17 @@ public class movement_crab : MonoBehaviour
         {
             calc_vector_tofollow();
             calc_direction_vector_y_axis();
-            
+
             if (betha > 0)
             {
-                betha = betha - 1;
+                betha = betha - 2;
                 this.transform.Rotate(0, Convert.ToSingle((float)1), 0, Space.World);
                 angle_y_axis = angle_y_axis - 1;
 
             }
             else if (betha < -1)
             {
-                betha = betha + 1;
+                betha = betha + 2;
                 this.transform.Rotate(0, Convert.ToSingle((float)-1), 0, Space.World);
                 angle_y_axis = angle_y_axis - 1;
 
@@ -196,10 +198,22 @@ public class movement_crab : MonoBehaviour
                     v_3 = -v_3;
                 }
                 var velocity_vector = new Vector3(
-                    Convert.ToSingle((float)v_1),
+                    Convert.ToSingle((float)v_1*2),
                     0,
-                    Convert.ToSingle((float)v_3));
+                    Convert.ToSingle((float)v_3)*2);
                 this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
+
+                if (delta_Enemy_Player<distances)
+                {
+                    distances += -2;
+                    a = Convert.ToSingle((float)follow_vector[0] * velocity_vector_array[0] + follow_vector[2] * velocity_vector_array[2]);
+                    b = Mathf.Sqrt(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + follow_vector[2] * follow_vector[2])))
+                        *
+                       Mathf.Sqrt(Convert.ToSingle((float)(velocity_vector_array[0] * velocity_vector_array[0] + velocity_vector_array[2] * velocity_vector_array[2])));
+                    term = a / b;
+
+                    betha = Mathf.Acos(Convert.ToSingle((float)term)) * (180 / Math.PI);
+                }
 
 
             }
