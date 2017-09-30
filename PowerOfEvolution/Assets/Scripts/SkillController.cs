@@ -17,9 +17,9 @@ public class SkillController : MonoBehaviour {
 	void Start () 
 	{
 		legs = new Skill(2, "legs", new Skill[] {});
-		hand = new Skill(4, "hand1", new Skill[] { legs });
-		horns = new Skill(8, "hand2", new Skill[] { legs });
-		spikes = new Skill(16, "hand2", new Skill[] { legs, hand, horns });
+		hand = new Skill(4, "hand", new Skill[] { legs });
+		horns = new Skill(8, "horns", new Skill[] { legs });
+		spikes = new Skill(16, "spikes", new Skill[] { legs, hand, horns });
 		AllSkills = new Skill[] { legs, hand, horns, spikes };
 	}
 	
@@ -32,9 +32,10 @@ public class SkillController : MonoBehaviour {
 	public void buySkill(string skillName) 
 	{
 		Skill skill = FindSkillByName (skillName);
+		Debug.Log (skill.Name);
 		player.decreaseSkillPoints (skill.RequiredSkillPoints);
-		// change model
-		// skill specifics
+		// TODO: change model
+		// TODO: skill specifics
 	}
 
 	public Skill FindSkillByName(string name) 

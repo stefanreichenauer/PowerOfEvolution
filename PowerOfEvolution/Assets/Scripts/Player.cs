@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
 		if (skillPoints - skillPnts >= 0) {
 			skillPoints -= skillPnts;
 		}
+		Debug.Log (skillPoints);
 	}
 
     public void takeDamage(int healthLoss)

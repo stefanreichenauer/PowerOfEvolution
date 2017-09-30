@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill : MonoBehaviour {
+public class Skill {
 
 	public int RequiredSkillPoints { get; set; }
 	public string Name { get; set; }

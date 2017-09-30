@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour {
 
-	SkillController skillController;
+	public SkillController skillController;
 
 	void Start() 
 	{
-		skillController = GameObject.FindGameObjectWithTag ("SkillController").GetComponent<SkillController> ();
 	}
 
 	public void OnClick(string skillName) {
