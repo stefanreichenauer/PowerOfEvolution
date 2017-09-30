@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:PowerOfEvolution/Assets/Standard Assets/CrossPlatformInput/boat.meta
+guid: 96ba1a184fb85c24c995bb632f86f4ef
+folderAsset: yes
+timeCreated: 1506709598
+=======
 guid: 861f8f625cbb0214999c031a37b59b73
 folderAsset: yes
 timeCreated: 1506754920
+>>>>>>> 53d830e34889ce980058576fde208468e134192d:PowerOfEvolution/Assets/Standard Assets/CrossPlatformInput/boat.meta
 licenseType: Free
 DefaultImporter:
   userData: 

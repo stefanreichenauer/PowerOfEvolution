@@ -16,6 +16,9 @@ public class movement : MonoBehaviour {
     private double to_rotate_y_axis = 0.0;
     private int todo = 0;
     private double[] follow_vector = new double[] { 0.0, 0.0, 0.0 };
+    private double delta_Enemy_Player=0;
+    private double betha = 0;
+    private double betha_direction = 0.0;
 
     //public  enemy;
     public GameObject Player;
@@ -49,8 +52,9 @@ public class movement : MonoBehaviour {
     {
         follow_vector[0] = Player.transform.position.x - this.transform.position.x;
         follow_vector[2] = Player.transform.position.z - this.transform.position.z;
-        MonoBehaviour.print(follow_vector[2]);
-
+        delta_Enemy_Player = Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
+            follow_vector[2] * follow_vector[2])));
+        MonoBehaviour.print(delta_Enemy_Player);
 
     }
 
@@ -112,6 +116,23 @@ public class movement : MonoBehaviour {
         }
         else if (agressive==true)
         {
+            betha = 
+                Mathf.Acos(Convert.ToSingle(((float)
+                velocity_vector_array[0] * follow_vector[0] + velocity_vector_array[2] * follow_vector[2])
+                /
+                (delta_Enemy_Player *
+                Mathf.Abs(Convert.ToSingle((float)
+                            velocity_vector_array[0] * velocity_vector_array[0] +
+                            velocity_vector_array[2] * velocity_vector_array[2] 
+                            )
+                         )
+                   )
+                )
+            );
+            betha_direction = betha / Mathf.Abs(Convert.ToSingle((float)betha));
+            //this.transform.Rotate(0, Convert.ToSingle((float)betha_direction), 0, Space.World);
+            //MonoBehaviour.print(betha_direction);
+
 
 
 
@@ -121,10 +142,13 @@ public class movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (1==1)
+        if (delta_Enemy_Player<100)
         {
-            
+            agressive = false;
         }
+        MonoBehaviour.print(delta_Enemy_Player);
+
         moveit();
+        
 	}
 }

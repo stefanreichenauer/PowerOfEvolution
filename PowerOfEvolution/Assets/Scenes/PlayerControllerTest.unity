@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1517,8 +1517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ece7fdf26e616c49a08c22cf5546ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expSlider: {fileID: 1678657549}
-  healthSlider: {fileID: 723431256}
+  expSlider: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!1 &1398529592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   experiencePoints: 0
   level: 1
   skillPoints: 0
-  ui: {fileID: 1395125182}
+  ui: {fileID: 0}
 --- !u!114 &1634640669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,6 +1751,7 @@ GameObject:
   - component: {fileID: 1653702979}
   - component: {fileID: 1653702983}
   - component: {fileID: 1653702982}
+  - component: {fileID: 1653702984}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1853,6 +1854,25 @@ MonoBehaviour:
   experiencePoints: 0
   level: 1
   skillPoints: 0
+--- !u!114 &1653702984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1653702977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5884e1ba31f1e3c458b3caf6206a02b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle_y_axis: 0
+  velocity_vector_array:
+  - 0
+  - 0
+  - 0
+  - 0
+  Enemy: {fileID: 100000, guid: 0fea0c2062675164a8faec629b04baf0, type: 3}
+  Player: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
 --- !u!1 &1678657547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2160,7 @@ MonoBehaviour:
   experiencePoints: 0
   level: 1
   skillPoints: 0
-  ui: {fileID: 1395125182}
+  ui: {fileID: 0}
 --- !u!114 &1916984650
 MonoBehaviour:
   m_ObjectHideFlags: 0
