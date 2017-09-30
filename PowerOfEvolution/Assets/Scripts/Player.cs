@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        skills.Add(new Skill("Horns"));
+        skills.Add(new Skill(1, "Horns", null));
 	}
 	
 	// Update is called once per frame
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
     {
         foreach(Skill skill in skills)
         {
-            if(skill.skillName == skillName)
+            if(skill.Name == skillName)
             {
                 return true;
             }
