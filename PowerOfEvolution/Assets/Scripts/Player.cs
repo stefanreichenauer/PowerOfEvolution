@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 
     int levelThreshold = 100;
 
+    public UI ui;
+
     // Use this for initialization
     void Start () {
 		
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            increaseExperiencePoints(10);
+            takeDamage(10);
         }
        // Debug.Log("Test: exp: " + experiencePoints);
        // Debug.Log("Test: level: " + level);
@@ -37,5 +39,22 @@ public class Player : MonoBehaviour {
             skillPoints++;
             level++;
         }
+
+        ui.changeExperienceBar(levelThreshold, experiencePoints);
+    }
+
+    public void takeDamage(int healthLoss)
+    {
+        health = Mathf.Max(0, health - healthLoss);
+        ui.changeHealthBar(100f, health);
+        //Debug.Log("Enemy healthLoss: health - " + health);
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
     }
 }

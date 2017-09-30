@@ -1,36 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
-
-    public RectTransform rect;
-    public RectTransform experienceBar;
+    
+    public Slider expSlider;
+    public Slider healthSlider;
 
     // Use this for initialization
     void Start () {
-        Debug.Log("Image Size:" + rect.rect.width);
-
         
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log("Image Size:" + rect.sizeDelta);
-
+       // Debug.Log("Image Size:" + rect.sizeDelta);
         if (Input.GetKeyDown(KeyCode.B))
         {
-            experienceBar.sizeDelta = new Vector2(10,0);
-            //changeExperienceBar(100,10);
+            changeExperienceBar(100,10);
         }
 
     }
 
-    void changeExperienceBar(int maxValue, int newValue)
-    {
-        float newWidth = newValue / maxValue * experienceBar.rect.width;
+    public void changeExperienceBar(float maxValue, float newValue)
+    {        
+        float newWidth = newValue / maxValue;
 
-        Mathf.Lerp(experienceBar.sizeDelta.x, newWidth, 0.2f * Time.deltaTime);
+        expSlider.value = newWidth;
+    }
+
+    public void changeHealthBar(float maxValue, float newValue)
+    {
+        float newWidth = newValue / maxValue;
+
+        healthSlider.value = newWidth;
     }
 }

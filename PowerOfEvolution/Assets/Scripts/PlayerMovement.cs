@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal") * turningSpeed * Time.deltaTime;
-        transform.Rotate(0, horizontal, 0);
+       // transform.Rotate(0, horizontal, 0);
+
+        transform.InverseTransformDirection(0, horizontal, 0);
 
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         transform.Translate(0, 0, vertical);
