@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public Player player;
 
     public int health = 100;
+    public int experienceBase = 100;
 
 
     // Use this for initialization
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        player.increaseExperiencePoints(10);
+        player.increaseExperiencePoints(experienceBase);
         Destroy(gameObject);
 
     }
