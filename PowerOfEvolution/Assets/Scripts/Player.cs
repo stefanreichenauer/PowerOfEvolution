@@ -52,6 +52,8 @@ public class Player : MonoBehaviour {
             levelThreshold = (level + 1) * 100;
             skillPoints++;
             level++;
+            ui.changeLevelText(level);
+            ui.toggleSkillMessage(true);
         }
 
         ui.changeExperienceBar(levelThreshold, experiencePoints);
@@ -61,6 +63,10 @@ public class Player : MonoBehaviour {
 	{
 		if (skillPoints - skillPnts >= 0) {
 			skillPoints -= skillPnts;
+            if(skillPoints == 0)
+            {
+                ui.toggleSkillMessage(false);
+            }
 		}
 		Debug.Log (skillPoints);
 	}
