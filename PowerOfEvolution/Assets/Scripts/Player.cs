@@ -11,11 +11,13 @@ public class Player : MonoBehaviour {
 
     int levelThreshold = 100;
 
+    List<Skill> skills = new List<Skill>();
+
     public UI ui;
 
     // Use this for initialization
     void Start () {
-		
+        skills.Add(new Skill("Horns"));
 	}
 	
 	// Update is called once per frame
@@ -56,5 +58,24 @@ public class Player : MonoBehaviour {
 
     public void Die()
     {
+    }
+
+
+    public void AddSkill(Skill skill)
+    {
+        skills.Add(skill);
+    }
+
+    public bool HasSkill(string skillName)
+    {
+        foreach(Skill skill in skills)
+        {
+            if(skill.skillName == skillName)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
