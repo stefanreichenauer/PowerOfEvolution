@@ -15,10 +15,19 @@ public class Player : MonoBehaviour {
 
     public UI ui;
 
+    PlayerAttack playerAttack;
+
+    float timeBetweenCollisionDamage;
+
     // Use this for initialization
     void Start () {
         skills.Add(new Skill(1, "Horns", null));
-	}
+
+        skills.Add(new Skill(1, "Spikes", null));
+
+        playerAttack = GetComponent<PlayerAttack>();
+        timeBetweenCollisionDamage = Time.time;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,6 +59,7 @@ public class Player : MonoBehaviour {
 		if (skillPoints - skillPnts >= 0) {
 			skillPoints -= skillPnts;
 		}
+		Debug.Log (skillPoints);
 	}
 
     public void takeDamage(int healthLoss)
@@ -84,5 +94,23 @@ public class Player : MonoBehaviour {
         }
 
         return false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+            Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (playerAttack.chargingAttack)
+            {
+                Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+                collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+                playerAttack.chargingAttack = false;
+            }
+            if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
+            {
+                collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+            }
+        }
     }
 }

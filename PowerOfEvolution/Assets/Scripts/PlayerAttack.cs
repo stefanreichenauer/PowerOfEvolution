@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 
     public Player player;
-    public float chargingSpeed = 500;
+    public float chargingSpeed = 1f;
 
-    bool chargingAttack = false;
+    public bool chargingAttack = false;
 
     Vector3 startPos = Vector3.zero;
     Vector3 endPos = Vector3.zero;
@@ -27,8 +27,8 @@ public class PlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Start Pos: " + startPos);
-        Debug.Log("End Pos: " + endPos);
+        //Debug.Log("Start Pos: " + startPos);
+       // Debug.Log("End Pos: " + endPos);
 
 
         if (player.HasSkill("Horns"))
@@ -39,29 +39,24 @@ public class PlayerAttack : MonoBehaviour {
                 chargingAttack = true;
                 startPos = transform.position;
                 endPos = transform.position + transform.forward * 10;
-
-
+                
                 startTime = Time.time;
-                journeyLength = Vector3.Distance(startPos, endPos);
+                //journeyLength = Vector3.Distance(startPos, endPos);
             }
         }
 
         if (chargingAttack)
         {
             float distCovered = (Time.time - startTime) * speed;
-
-           // Debug.Log("Dist Pos: " + journeyLength);
-            float fracJourney = distCovered * 4f;
-            //Debug.Log("Frac Pos: " + fracJourney);
+            
+            float fracJourney = distCovered * chargingSpeed;
             transform.position = Vector3.Lerp(startPos, endPos, fracJourney);
 
             if (transform.position.Equals(endPos))
             {
-                Debug.Log("Dist Pos: " + chargingAttack);
+           //     Debug.Log("Dist Pos: " + chargingAttack);
                 chargingAttack = false;
             }
-
-           // transform.position = Vector3.Lerp(startPos, endPos, 0.01f * Time.deltaTime);
         }
     }
 
