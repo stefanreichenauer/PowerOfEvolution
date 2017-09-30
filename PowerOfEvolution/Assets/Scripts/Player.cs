@@ -17,12 +17,16 @@ public class Player : MonoBehaviour {
 
     PlayerAttack playerAttack;
 
+    float timeBetweenCollisionDamage;
+
     // Use this for initialization
     void Start () {
         skills.Add(new Skill(1, "Horns", null));
 
-        playerAttack = GetComponent<PlayerAttack>();
+        skills.Add(new Skill(1, "Spikes", null));
 
+        playerAttack = GetComponent<PlayerAttack>();
+        timeBetweenCollisionDamage = Time.time;
     }
 	
 	// Update is called once per frame
@@ -95,11 +99,18 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
             Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
-        if (collision.gameObject.tag == "Enemy" && playerAttack.chargingAttack)
+        if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
-            collision.gameObject.GetComponent<Enemy>().takeDamage(10);
-            playerAttack.chargingAttack = false;
+            if (playerAttack.chargingAttack)
+            {
+                Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+                collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+                playerAttack.chargingAttack = false;
+            }
+            if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
+            {
+                collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+            }
         }
     }
 }
