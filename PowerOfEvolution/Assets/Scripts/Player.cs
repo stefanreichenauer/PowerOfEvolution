@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
         {
             takeDamage(10);
         }
-        Debug.Log("Test: coll: " + colliding);
+        //Debug.Log("Test: coll: " + colliding);
        // Debug.Log("Test: level: " + level);
     }
 
