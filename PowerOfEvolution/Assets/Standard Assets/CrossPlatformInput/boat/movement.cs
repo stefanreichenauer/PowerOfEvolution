@@ -52,8 +52,8 @@ public class movement : MonoBehaviour {
     {
         follow_vector[0] = Player.transform.position.x - this.transform.position.x;
         follow_vector[2] = Player.transform.position.z - this.transform.position.z;
-        delta_Enemy_Player = Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
-            follow_vector[2] * follow_vector[2])));
+        delta_Enemy_Player = Mathf.Sqrt(Mathf.Abs(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + 
+            follow_vector[2] * follow_vector[2]))));
         MonoBehaviour.print(delta_Enemy_Player);
 
     }
@@ -129,9 +129,8 @@ public class movement : MonoBehaviour {
                    )
                 )
             );
-            betha_direction = betha / Mathf.Abs(Convert.ToSingle((float)betha));
+            betha_direction = (betha / Mathf.Abs(Convert.ToSingle((float)betha)));
             //this.transform.Rotate(0, Convert.ToSingle((float)betha_direction), 0, Space.World);
-            //MonoBehaviour.print(betha_direction);
 
 
 
@@ -142,13 +141,15 @@ public class movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (delta_Enemy_Player<100)
-        {
-            agressive = false;
-        }
-        MonoBehaviour.print(delta_Enemy_Player);
-
         moveit();
+        MonoBehaviour.print(agressive);
+
+        if (delta_Enemy_Player<38)
+        {
+            agressive = true;
+        }
+
+        
         
 	}
 }
