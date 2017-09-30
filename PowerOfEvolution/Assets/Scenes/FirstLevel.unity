@@ -271,6 +271,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54060957505820894, guid: 511b6c23b19eaa74abf5a5bb43c22eda,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 511b6c23b19eaa74abf5a5bb43c22eda, type: 2}
   m_IsPrefabParent: 0
@@ -280,6 +285,50 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1019917569}
   m_Script: {fileID: 11500000, guid: b2a6216654732b743b47e65956d83fd2, type: 3}
+--- !u!1 &1179915436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1179915437}
+  - component: {fileID: 1179915438}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1179915437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179915436}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5, y: -1.1, z: 81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179915438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179915436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca29127a324c7b42aece0d176a2daf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  sticks: {fileID: 1084731154679878, guid: 0f615c74438dd13429641afbe393ec53, type: 2}
+  parent: {fileID: 1179915436}
+  destroyed: 0
 --- !u!1 &1325042685
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +485,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1019917570}
+    - target: {fileID: 114047320072951054, guid: 6b5bb009741cf354b87f344e9b04a34f,
+        type: 2}
+      propertyPath: destruct
+      value: 
+      objectReference: {fileID: 1179915438}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b5bb009741cf354b87f344e9b04a34f, type: 2}
   m_IsPrefabParent: 0
