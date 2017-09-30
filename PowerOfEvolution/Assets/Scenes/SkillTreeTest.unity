@@ -155,6 +155,10 @@ MonoBehaviour:
   skillPoints: 50
   ui: {fileID: 0}
   colliding: 0
+  gameController: {fileID: 0}
+  firstLevelSpawn: {fileID: 0}
+  secondLevelSpawn: {fileID: 0}
+  thirdLevelSpawn: {fileID: 0}
 --- !u!114 &55681127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +306,39 @@ Prefab:
       propertyPath: skillAvailable
       value: 
       objectReference: {fileID: 21300000, guid: 756cf1e36bc6a494d93a24cf1b412911,
+        type: 3}
+    - target: {fileID: 114672407481831602, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114672407481831602, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114672407481831602, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00d6664a2f6bf4832a90dc546c277161,
+        type: 3}
+    - target: {fileID: 114154464239978526, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114154464239978526, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9438305f98f7e418e98fe958b6be18d4,
+        type: 3}
+    - target: {fileID: 114891267679784374, guid: 99a10d818f2744f78ad9f7020cf36e38,
+        type: 2}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8d8adcd4748140deb88237a8ed607f3,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99a10d818f2744f78ad9f7020cf36e38, type: 2}
