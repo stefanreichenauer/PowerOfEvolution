@@ -13,12 +13,14 @@ public class CrabAttack : MonoBehaviour {
     public GameObject closedClaw;
 
     public float switchTime = 0.1f;
-    float lastSwitchTime = Time.time;
+    float lastSwitchTime;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        lastSwitchTime = Time.time;
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

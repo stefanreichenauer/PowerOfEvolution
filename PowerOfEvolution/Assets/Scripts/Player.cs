@@ -20,6 +20,17 @@ public class Player : MonoBehaviour {
     float timeBetweenCollisionDamage;
 
     public bool colliding = false;
+    
+    public GameController gameController;
+
+    public Transform firstLevelSpawn;
+    public Transform secondLevelSpawn;
+    public Transform thirdLevelSpawn;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.root.gameObject);
+    }
 
     // Use this for initialization
     void Start () {
@@ -29,13 +40,14 @@ public class Player : MonoBehaviour {
 
         playerAttack = GetComponent<PlayerAttack>();
         timeBetweenCollisionDamage = Time.time;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            takeDamage(10);
+            gameController.LoadScene(3);
         }
 
        // Debug.Log("Test: level: " + level);
@@ -52,6 +64,8 @@ public class Player : MonoBehaviour {
             levelThreshold = (level + 1) * 100;
             skillPoints++;
             level++;
+            ui.changeLevelText(level);
+            ui.toggleSkillMessage(true);
         }
 
         ui.changeExperienceBar(levelThreshold, experiencePoints);
@@ -61,6 +75,10 @@ public class Player : MonoBehaviour {
 	{
 		if (skillPoints - skillPnts >= 0) {
 			skillPoints -= skillPnts;
+            if(skillPoints == 0)
+            {
+                ui.toggleSkillMessage(false);
+            }
 		}
 		Debug.Log (skillPoints);
 	}
@@ -125,10 +143,32 @@ public class Player : MonoBehaviour {
                 collision.gameObject.GetComponent<Enemy>().takeDamage(10);
             }
         }
+
+        if (collision.gameObject.tag == "LevelChange")
+        {
+            if (HasSkill("legs"))
+            {
+                gameController.LoadScene(3);
+
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
         colliding = false;
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 3)
+        {
+            gameObject.transform.position = secondLevelSpawn.position;
+            gameObject.transform.rotation = secondLevelSpawn.rotation;
+
+            GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+
+
 }

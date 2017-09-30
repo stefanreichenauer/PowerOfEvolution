@@ -8,6 +8,9 @@ public class UI : MonoBehaviour {
     public Slider expSlider;
     public Slider healthSlider;
 
+    public Text levelText;
+    public GameObject skillMessage;
+
     // Use this for initialization
     void Start () {
         
@@ -36,5 +39,15 @@ public class UI : MonoBehaviour {
         float newWidth = newValue / maxValue;
 
         healthSlider.value = newWidth;
+    }
+
+    public void changeLevelText(int level)
+    {
+        levelText.text = "Level: " + level;
+    }
+
+    public void toggleSkillMessage(bool showMessage)
+    {
+        skillMessage.SetActive(showMessage);
     }
 }
