@@ -19,7 +19,7 @@ public class SkillController : MonoBehaviour {
 		legs = new Skill(2, "legs", new Skill[] {});
 		hand = new Skill(4, "hand", new Skill[] { legs });
 		horns = new Skill(8, "horns", new Skill[] { legs });
-		spikes = new Skill(16, "spikes", new Skill[] { legs, hand, horns });
+		spikes = new Skill(16, "spikes", new Skill[] { hand, horns });
 		AllSkills = new Skill[] { legs, hand, horns, spikes };
 	}
 
@@ -48,11 +48,21 @@ public class SkillController : MonoBehaviour {
 		return -1;
 	}
 
+	void changeLineState(string skillName) {
+		GameObject[] objects = GameObject.FindGameObjectsWithTag("SkillTreeLine");
+		foreach (GameObject object1 in objects) {
+			if (object1.name.ToLower ().StartsWith (skillName.ToLower ())) {
+				object1.GetComponent<Image> ().color = Color.yellow;
+			}
+		}
+	}
+
 	public void buySkill(string skillName) 
 	{
 		Skill skill = FindSkillByName (skillName);
 		player.decreaseSkillPoints (skill.RequiredSkillPoints);
 		player.AddSkill (skill);
+		changeLineState (skillName);
 		// TODO: change model
 		// TODO: skill specifics
 	}
