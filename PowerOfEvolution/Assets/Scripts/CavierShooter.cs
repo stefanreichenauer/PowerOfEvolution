@@ -16,7 +16,7 @@ public class CavierShooter : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Vector3 newPos = gameObject.transform.position + gameObject.transform.forward;
-             newPos.y += 1;
+             newPos.y += 3;
 
             GameObject cavierBullet = Instantiate(cavierPrefab, newPos, transform.rotation);
             cavierBullet.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 1000);
