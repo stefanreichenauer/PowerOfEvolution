@@ -23,6 +23,10 @@ public class Player : MonoBehaviour {
     
     public GameController gameController;
 
+    public Transform firstLevelSpawn;
+    public Transform secondLevelSpawn;
+    public Transform thirdLevelSpawn;
+
     private void Awake()
     {
         DontDestroyOnLoad(transform.root.gameObject);
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            takeDamage(10);
+            gameController.LoadScene(3);
         }
 
        // Debug.Log("Test: level: " + level);
@@ -154,4 +158,15 @@ public class Player : MonoBehaviour {
     {
         colliding = false;
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 3)
+        {
+            gameObject.transform.position = secondLevelSpawn.position;
+            gameObject.transform.rotation = secondLevelSpawn.rotation;
+        }
+    }
+
+
 }
