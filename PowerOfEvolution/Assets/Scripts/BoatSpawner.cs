@@ -18,7 +18,7 @@ public class BoatSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(activeBoats.Count <= 2)
+		if(activeBoats.Count < 2)
         {
             spawnBoat();
         }
