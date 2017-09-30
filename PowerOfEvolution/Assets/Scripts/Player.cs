@@ -20,6 +20,13 @@ public class Player : MonoBehaviour {
     float timeBetweenCollisionDamage;
 
     public bool colliding = false;
+    
+    public GameController gameController;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.root.gameObject);
+    }
 
     // Use this for initialization
     void Start () {
@@ -29,6 +36,7 @@ public class Player : MonoBehaviour {
 
         playerAttack = GetComponent<PlayerAttack>();
         timeBetweenCollisionDamage = Time.time;
+        
     }
 	
 	// Update is called once per frame
@@ -37,15 +45,7 @@ public class Player : MonoBehaviour {
         {
             takeDamage(10);
         }
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-        //Debug.Log("Test: coll: " + colliding);
-//=======
-       // Debug.Log("Test: coll: " + colliding);
-//>>>>>>> d0c8388c34508e5d1e34fe2be51bf8afca30bf92
-//=======
 
-///>>>>>>> 1f76c6ec6c2bd26997457372cc4a989bc46adc26
        // Debug.Log("Test: level: " + level);
     }
 
@@ -137,6 +137,15 @@ public class Player : MonoBehaviour {
             if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
             {
                 collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+            }
+        }
+
+        if (collision.gameObject.tag == "LevelChange")
+        {
+            if (HasSkill("legs"))
+            {
+                gameController.LoadScene(3);
+
             }
         }
     }
