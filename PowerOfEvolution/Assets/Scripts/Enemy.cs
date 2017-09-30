@@ -7,11 +7,7 @@ public class Enemy : MonoBehaviour
     public Player player;
 
     public int health = 100;
-    public int experiencePoints = 0;
-    public int level = 1;
-    public int skillPoints = 0;
 
-    int levelThreshold = 100;
 
     // Use this for initialization
     void Start()
