@@ -12,6 +12,7 @@ TagManager:
   - Shell
   - EnemyCrab
   - TunnelBlockade
+  - Slap
   layers:
   - Default
   - TransparentFX

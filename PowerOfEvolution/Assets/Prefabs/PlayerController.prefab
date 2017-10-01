@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4698338873935406}
   - component: {fileID: 95611006693035614}
+  - component: {fileID: 135745477142579046}
+  - component: {fileID: 114284121328005224}
   m_Layer: 0
   m_Name: slapping_walking_horns
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,9 +783,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4589013090373248}
   - component: {fileID: 95913430687661862}
+  - component: {fileID: 135275860747896472}
+  - component: {fileID: 114434945748649184}
   m_Layer: 0
   m_Name: 'slapping_walking_without_horns '
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1147,9 +1151,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4125947872683380}
   - component: {fileID: 95823545709907618}
+  - component: {fileID: 135976081784271768}
+  - component: {fileID: 114522393174894798}
   m_Layer: 0
   m_Name: slapping_horns_walking_spikes
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5117,7 +5123,7 @@ Animator:
   m_GameObject: {fileID: 1004167611518734}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8d23f3f04753f484aa12bc0861ab14a5, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52da036a90d79b449b6b6904d58292b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5185,7 +5191,7 @@ Animator:
   m_GameObject: {fileID: 1372684567682960}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 808a727b1c927f8449a9e05d07248331, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0549cd8ee3693904e8bd71bdba203f2a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5554,6 +5560,17 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114284121328005224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004167611518734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67a2efbbf8400742801a253bfc5cc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114303973412867310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5843,6 +5860,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114434945748649184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372684567682960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67a2efbbf8400742801a253bfc5cc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114435042827400602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6000,6 +6028,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Skillpoint are available. Press X to choose skills.
+--- !u!114 &114522393174894798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549597205794356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67a2efbbf8400742801a253bfc5cc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114524981283640080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6792,6 +6831,42 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172940301382358}
   m_Enabled: 1
+--- !u!135 &135275860747896472
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372684567682960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0096962135
+  m_Center: {x: 0.074519254, y: 0.0555534, z: 0.04406645}
+--- !u!135 &135745477142579046
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004167611518734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0096962135
+  m_Center: {x: 0.074519254, y: 0.0555534, z: 0.04406645}
+--- !u!135 &135976081784271768
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549597205794356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0096962135
+  m_Center: {x: 0.074519254, y: 0.0555534, z: 0.04406645}
 --- !u!136 &136257082777980544
 CapsuleCollider:
   m_ObjectHideFlags: 1
