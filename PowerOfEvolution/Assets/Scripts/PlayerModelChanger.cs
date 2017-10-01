@@ -26,6 +26,8 @@ public class PlayerModelChanger : MonoBehaviour {
 
     public void changeModel(bool legs, bool horns, bool hands, bool spikes)
     {
+        Debug.Log("changeModel: " + legs + " - " + horns + " - " + hands + " - " + spikes);
+
         if (legs && horns && hands && spikes)
         {
             activeModel.SetActive(false);
@@ -38,13 +40,14 @@ public class PlayerModelChanger : MonoBehaviour {
             fish_legs_horns_hand.SetActive(true);
             activeModel = fish_legs_horns_hand;
         }
-        if (legs && horns)
+        else if(legs && horns)
         {
+            Debug.Log("changeModel2: " + legs + " - " + horns + " - " + hands + " - " + spikes);
             activeModel.SetActive(false);
             fish_legs_horns.SetActive(true);
             activeModel = fish_legs_horns;
         }
-        if (legs && hands)
+        else if(legs && hands)
         {
             activeModel.SetActive(false);
             fish_legs_hand.SetActive(true);
@@ -52,6 +55,7 @@ public class PlayerModelChanger : MonoBehaviour {
         }
         else if (legs)
         {
+            Debug.Log("changeModel3: " + legs + " - " + horns + " - " + hands + " - " + spikes);
             activeModel.SetActive(false);
             fish_legs.SetActive(true);
             activeModel = fish_legs;
