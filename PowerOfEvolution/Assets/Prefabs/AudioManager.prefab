@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1041860578822778}
+  m_IsPrefabParent: 1
+--- !u!1 &1041860578822778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4361829823247008}
+  - component: {fileID: 114297791772760056}
+  - component: {fileID: 114588039224221834}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4361829823247008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041860578822778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114297791772760056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041860578822778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeec4725b673b04db0cd051254c8660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sEffects:
+  - name: boat_destroyed
+    clip: {fileID: 8300000, guid: 09c08c521969bc04589845a976954d1b, type: 3}
+    volume: 4.25
+    volumeVariance: 2.44
+    pitch: 1.61
+    pitchVariance: 2.28
+    loop: 0
+    source: {fileID: 0}
+  - name: crab_clap
+    clip: {fileID: 8300000, guid: 8ef79242c1102b94ea8e8feae17a6b01, type: 3}
+    volume: 0
+    volumeVariance: 0
+    pitch: 0
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: splash_wave
+    clip: {fileID: 8300000, guid: 0b688854f807874408130d4f5d7c46b8, type: 3}
+    volume: 0.35
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: shoot
+    clip: {fileID: 8300000, guid: ab0bb4996693090488d3d85f893e3c22, type: 3}
+    volume: 0.93
+    volumeVariance: 0.99
+    pitch: 0.78
+    pitchVariance: 0.62
+    loop: 0
+    source: {fileID: 0}
+  - name: battle
+    clip: {fileID: 8300000, guid: 0b9e2d721a78e474abbc80011c8a13bf, type: 3}
+    volume: 0.41
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: track1
+    clip: {fileID: 8300000, guid: ff93e53996fb2344fb6f6fb3c70de556, type: 3}
+    volume: 0.41
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: track2
+    clip: {fileID: 8300000, guid: cb4bc7aeeb34f9040ba8ad5dfbd574e2, type: 3}
+    volume: 0.41
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: footsteps
+    clip: {fileID: 8300000, guid: ccd1674d7dbb4204c87da32e17e44549, type: 3}
+    volume: 0.35
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: slap
+    clip: {fileID: 8300000, guid: 78859272e8202a4409b95df0292b9a33, type: 3}
+    volume: 0.35
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: skill_buy
+    clip: {fileID: 8300000, guid: 0a38939f7a4c21b41972e55f09f2ca15, type: 3}
+    volume: 0.6
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &114588039224221834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041860578822778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd3e0eaa385bf4408d272851355b34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
