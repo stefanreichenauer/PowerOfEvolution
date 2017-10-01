@@ -30,6 +30,7 @@ public class movement_crab : MonoBehaviour
     private double v_1 = 0.0;
     private double v_2 = 0.0;
     private double v_3 = 0.0;
+    private bool beginning = true;
     //public  enemy;
     public GameObject Player;
     //private var velocity_vector = new Vector3(0f, 0f, 0f);
@@ -144,7 +145,7 @@ public class movement_crab : MonoBehaviour
             calc_vector_tofollow();
             calc_direction_vector_y_axis();
 
-            if (betha > 0)
+            if (betha > 1)
             {
                 betha = betha - 2;
                 this.transform.Rotate(0, Convert.ToSingle((float)1), 0, Space.World);
@@ -169,20 +170,30 @@ public class movement_crab : MonoBehaviour
                 term = a / b;
 
                 betha = Mathf.Acos(Convert.ToSingle((float)term)) * (180 / Math.PI);
-                if (this.transform.position.z < 0)
+                if (this.transform.position.z < Player.transform.position.z)
                 {
                     betha += -90;
-                    if (this.transform.position.x > 0)
+                    if (this.transform.position.x > Player.transform.position.x)
                     {
                         betha =-(betha+ 90);
                     }
                 }
-                MonoBehaviour.print(betha);
+                else if (this.transform.position.z > Player.transform.position.z)
+                {
+                    if (this.transform.position.x < Player.transform.position.x)
+                    {
+                        betha += 120;
+                    }
+                    else if (this.transform.position.x > 0)
+                    {
+                        betha += -90;
+                    }
+                }
 
 
 
             }
-            else if (Mathf.Abs(Convert.ToSingle((float)betha)) < 1)
+            else if (Mathf.Abs(Convert.ToSingle((float)betha)) < 1.5)
             {
                 calc_vector_tofollow();
                 v_1 = Convert.ToSingle((float)follow_vector[2] / Mathf.Abs(Convert.ToSingle((float)(follow_vector[2]))) * -0.3);
@@ -202,10 +213,11 @@ public class movement_crab : MonoBehaviour
                     0,
                     Convert.ToSingle((float)v_3)*2);
                 this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
-
-                if (delta_Enemy_Player<distances)
+                
+                if (delta_Enemy_Player< distances)
                 {
                     distances += -2;
+                    if (distances < 10) { distances = 10; }
                     a = Convert.ToSingle((float)follow_vector[0] * velocity_vector_array[0] + follow_vector[2] * velocity_vector_array[2]);
                     b = Mathf.Sqrt(Convert.ToSingle((float)(follow_vector[0] * follow_vector[0] + follow_vector[2] * follow_vector[2])))
                         *
@@ -213,6 +225,9 @@ public class movement_crab : MonoBehaviour
                     term = a / b;
 
                     betha = Mathf.Acos(Convert.ToSingle((float)term)) * (180 / Math.PI);
+                    //MonoBehaviour.print(betha);
+
+
                 }
 
 
@@ -231,10 +246,16 @@ public class movement_crab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (beginning==true)
+        {
+            beginning = false;
+            this.transform.Rotate(0, 120, 0, 0);
+        }
         moveit();
-        agressive = true;
+        //MonoBehaviour.print(delta_Enemy_Player);
+        //agressive = true;
 
-        if (delta_Enemy_Player < 40)
+        if (delta_Enemy_Player < 150)
         {
             agressive = true;
         }

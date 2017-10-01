@@ -41,7 +41,7 @@ public class movement_bird : MonoBehaviour
     private int set_move()
     {
         int direction = Random.Range(0, 2);
-        if (direction == 0)
+        /*if (direction == 0)
         {
             this.transform.Rotate(0, Convert.ToSingle((float)to_rotate_y_axis), 20, 0);
             
@@ -49,7 +49,7 @@ public class movement_bird : MonoBehaviour
         else if (direction == 1)
         {
             this.transform.Rotate(0, Convert.ToSingle((float)to_rotate_y_axis), -20, 0);
-        }
+        }*/
         return direction;
     }
     void calc_direction_vector_y_axis()
@@ -58,7 +58,7 @@ public class movement_bird : MonoBehaviour
         velocity_vector_array[1] = 0;
         velocity_vector_array[1] = Mathf.Sin(Convert.ToSingle((float)angle_y_axis * degrees_to_radians));
     }
-    void calc_vector_tofollow()
+    /*void calc_vector_tofollow()
     {
         follow_vector[0] = Player.transform.position.x - this.transform.position.x;
         follow_vector[2] = Player.transform.position.z - this.transform.position.z;
@@ -66,12 +66,12 @@ public class movement_bird : MonoBehaviour
             follow_vector[2] * follow_vector[2]))));
         //  MonoBehaviour.print(delta_Enemy_Player);
 
-    }
+    }*/
 
 
     void moveit()
     {
-        //todo = 1;
+        //todo = 0;
 
         if (agressive == false)
         {
@@ -85,8 +85,8 @@ public class movement_bird : MonoBehaviour
             }
             else
             {
-                current_move_time = current_move_time - 1;
-                calc_vector_tofollow();
+                //current_move_time = current_move_time - 1;
+                //calc_vector_tofollow();
 
                 if (todo == 0)
                 {
@@ -94,9 +94,9 @@ public class movement_bird : MonoBehaviour
                     to_rotate_y_axis = -0.001;
                     angle_y_axis = angle_y_axis + to_rotate_y_axis;
                     calc_direction_vector_y_axis();
-                    this.transform.Rotate(0, Convert.ToSingle((float)to_rotate_y_axis), 0, Space.World);
+                    this.transform.Rotate(0, Convert.ToSingle((float)-1), 0, Space.World);
                     
-
+                    
                     var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 1),
                     0,
                     Convert.ToSingle((float)velocity_vector_array[0] * 1));
@@ -165,12 +165,13 @@ public class movement_bird : MonoBehaviour
 
         }
         moveit();
-        MonoBehaviour.print(betha);
-
-        if (delta_Enemy_Player < 40)
+        //MonoBehaviour.print(betha);
+        if (this.transform.position.y<20)
         {
-            agressive = false;
+            var up = new Vector3(0, 2, 0);
+            this.transform.position += up;
         }
+
 
 
 
