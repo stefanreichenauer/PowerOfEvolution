@@ -209,9 +209,9 @@ public class movement_crab : MonoBehaviour
                     v_3 = -v_3;
                 }
                 var velocity_vector = new Vector3(
-                    Convert.ToSingle((float)v_1*2),
+                    Convert.ToSingle((float)v_1*0.5),
                     0,
-                    Convert.ToSingle((float)v_3)*2);
+                    Convert.ToSingle((float)v_3*0.5));
                 this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
                 
                 if (delta_Enemy_Player< distances)
@@ -255,7 +255,7 @@ public class movement_crab : MonoBehaviour
         //MonoBehaviour.print(delta_Enemy_Player);
         //agressive = true;
 
-        if (delta_Enemy_Player < 150)
+        if (delta_Enemy_Player < 30)
         {
             agressive = true;
         }
