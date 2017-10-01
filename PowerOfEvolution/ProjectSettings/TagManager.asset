@@ -11,6 +11,7 @@ TagManager:
   - LevelChange
   - Shell
   - EnemyCrab
+  - TunnelBlockade
   layers:
   - Default
   - TransparentFX
