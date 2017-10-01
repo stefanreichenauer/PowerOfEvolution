@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour {
        // Debug.Log("End Pos: " + endPos);
 
 
-        if (player.HasSkill("Horns"))
+        if (player.HasSkill("horns"))
         {
             if (Input.GetKeyDown(KeyCode.R))
             {/*
@@ -45,6 +45,7 @@ public class PlayerAttack : MonoBehaviour {
                 //journeyLength = Vector3.Distance(startPos, endPos);
                 */
 
+                chargingAttack = true;
                 float vertical = movementSpeed * Time.deltaTime;
                 transform.Translate(0, 0, vertical);
             }

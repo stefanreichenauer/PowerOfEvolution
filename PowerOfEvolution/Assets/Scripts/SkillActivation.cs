@@ -18,7 +18,7 @@ public class SkillActivation : MonoBehaviour {
 		int available = skillController.skillAvailability (skillName);
 		Sprite image = skillButton.GetComponent<Image> ().sprite;
 
-        Debug.Log("SkillActivation: "+available);
+        //Debug.Log("SkillActivation: "+available);
         switch (available) {
 		case -1:
 			// unavailable

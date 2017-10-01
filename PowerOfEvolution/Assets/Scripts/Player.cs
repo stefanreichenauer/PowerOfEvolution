@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
     public Transform secondLevelSpawn;
     public Transform thirdLevelSpawn;
 
+    PlayerModelChanger modelChanger;
+
     private void Awake()
     {
         DontDestroyOnLoad(transform.root.gameObject);
@@ -35,8 +37,9 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerAttack = GetComponent<PlayerAttack>();
+        modelChanger = GetComponent<PlayerModelChanger>();
         timeBetweenCollisionDamage = Time.time;
-        
+        AddSkill(new Skill(1, "horns", new Skill[] { }));
     }
 	
 	// Update is called once per frame
@@ -98,6 +101,13 @@ public class Player : MonoBehaviour {
     public void AddSkill(Skill skill)
     {
         skills.Add(skill);
+
+        bool legs = HasSkill("legs");
+        bool horns = HasSkill("horns");
+        bool hands = HasSkill("hand");
+        bool spikes = HasSkill("spikes");
+
+        modelChanger.changeModel(legs, horns, hands, spikes);
     }
 
 	public bool HasRequirements(Skill skill) {
@@ -148,6 +158,25 @@ public class Player : MonoBehaviour {
 
             }
         }
+
+        if (collision.gameObject.tag == "Shell")
+        {
+            takeDamage(10);
+        }
+
+        if (collision.gameObject.tag == "TunnelBlockade" && playerAttack.chargingAttack)
+        {
+            playerAttack.chargingAttack = false;
+            Destroy(collision.gameObject);
+            StartCoroutine("LoadThirdLevel");
+        }
+        
+    }
+
+    IEnumerator LoadThirdLevel()
+    {
+        yield return new WaitForSeconds(1.0f);
+        gameController.LoadScene(2);
     }
 
     private void OnCollisionExit(Collision collision)

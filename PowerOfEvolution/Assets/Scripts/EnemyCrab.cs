@@ -34,7 +34,7 @@ public class EnemyCrab : MonoBehaviour {
     public void takeDamage(int healthLoss)
     {
         health = Mathf.Max(0, health - healthLoss);
-        Debug.Log("Enemy healthLoss: health - " + health);
+        Debug.Log("EnemyCrab healthLoss: health - " + health);
         if (health <= 0)
         {
             Die();
