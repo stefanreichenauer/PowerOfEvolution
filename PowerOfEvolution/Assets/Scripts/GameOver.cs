@@ -7,6 +7,7 @@ public class GameOver : MonoBehaviour {
 
     private void Awake()
     {
+        Destroy(GameObject.Find("PlayerController"));
         StartCoroutine("LoadMainMenu");
     }
 
