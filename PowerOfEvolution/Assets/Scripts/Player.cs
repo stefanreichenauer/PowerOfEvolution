@@ -172,7 +172,7 @@ public class Player : MonoBehaviour {
         {
             if (HasSkill("legs"))
             {
-                gameController.LoadScene(3);
+                gameController.LoadScene(2);
 
             }
         }
@@ -194,7 +194,7 @@ public class Player : MonoBehaviour {
     IEnumerator LoadThirdLevel()
     {
         yield return new WaitForSeconds(1.0f);
-        gameController.LoadScene(2);
+        gameController.LoadScene(3);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -204,7 +204,7 @@ public class Player : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 3)
+        if(level == 2)
         {
             gameObject.transform.position = secondLevelSpawn.position;
             gameObject.transform.rotation = secondLevelSpawn.rotation;
