@@ -11,7 +11,7 @@ public class CavierShooter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        
         lastShot = Time.time;
     }
 	
@@ -21,6 +21,7 @@ public class CavierShooter : MonoBehaviour {
        // Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
         if (Input.GetKeyDown(KeyCode.E) && (Time.time - lastShot > cavierCooldown))
         {
+            FindObjectOfType<AudioManager>().Play("shoot");
             lastShot = Time.time;
                Vector3 newPos = gameObject.transform.position + gameObject.transform.forward;
              newPos.y += 3;

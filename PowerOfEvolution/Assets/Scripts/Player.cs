@@ -63,6 +63,7 @@ public class Player : MonoBehaviour {
             levelThreshold = (level + 1) * 100;
             skillPoints++;
             level++;
+            FindObjectOfType<AudioManager>().Play("level_up");
             ui.changeLevelText(level);
             ui.toggleSkillMessage(true);
         }

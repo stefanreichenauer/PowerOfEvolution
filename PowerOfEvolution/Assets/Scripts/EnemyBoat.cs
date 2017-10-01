@@ -38,6 +38,7 @@ public class EnemyBoat : MonoBehaviour {
         Debug.Log("Enemy healthLoss: health - " + health);
         if (health <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("boat_destroyed");
             Die();
         }
     }
