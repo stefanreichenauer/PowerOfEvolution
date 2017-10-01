@@ -16,6 +16,7 @@ public class ShowHideSkillTree : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.K) && skillTreeCanvas != null) {
+           // GetComponent<SkillController>().skillAvailability
 			skillTreeCanvas.enabled = !skillTreeCanvas.enabled;
 		}
 	}

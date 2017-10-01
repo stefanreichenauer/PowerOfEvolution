@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641246, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -155,6 +155,10 @@ MonoBehaviour:
   skillPoints: 50
   ui: {fileID: 0}
   colliding: 0
+  gameController: {fileID: 0}
+  firstLevelSpawn: {fileID: 0}
+  secondLevelSpawn: {fileID: 0}
+  thirdLevelSpawn: {fileID: 0}
 --- !u!114 &55681127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,91 +279,29 @@ Prefab:
       propertyPath: skillController
       value: 
       objectReference: {fileID: 55681125}
-    - target: {fileID: 114160107331836604, guid: 99a10d818f2744f78ad9f7020cf36e38,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 55681126}
     - target: {fileID: 114451459586452710, guid: 99a10d818f2744f78ad9f7020cf36e38,
         type: 2}
       propertyPath: skillController
       value: 
       objectReference: {fileID: 55681125}
-    - target: {fileID: 114605731417111612, guid: 99a10d818f2744f78ad9f7020cf36e38,
+    - target: {fileID: 114160107331836604, guid: 99a10d818f2744f78ad9f7020cf36e38,
         type: 2}
-      propertyPath: skillUnavailable
+      propertyPath: player
       value: 
-      objectReference: {fileID: 21300000, guid: b05f51ee3e9864f3d974da1cd362f38b,
-        type: 3}
-    - target: {fileID: 114605731417111612, guid: 99a10d818f2744f78ad9f7020cf36e38,
+      objectReference: {fileID: 55681126}
+    - target: {fileID: 114212503805494538, guid: 99a10d818f2744f78ad9f7020cf36e38,
         type: 2}
-      propertyPath: skillActive
+      propertyPath: skillController
       value: 
-      objectReference: {fileID: 21300000, guid: a8d8adcd4748140deb88237a8ed607f3,
-        type: 3}
-    - target: {fileID: 114605731417111612, guid: 99a10d818f2744f78ad9f7020cf36e38,
+      objectReference: {fileID: 55681125}
+    - target: {fileID: 114715964141118032, guid: 99a10d818f2744f78ad9f7020cf36e38,
         type: 2}
-      propertyPath: skillAvailable
+      propertyPath: skillController
       value: 
-      objectReference: {fileID: 21300000, guid: 756cf1e36bc6a494d93a24cf1b412911,
-        type: 3}
+      objectReference: {fileID: 55681125}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99a10d818f2744f78ad9f7020cf36e38, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &195552013 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1308633881879774, guid: 99a10d818f2744f78ad9f7020cf36e38,
-    type: 2}
-  m_PrefabInternal: {fileID: 195552012}
---- !u!114 &195552014 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114154464239978526, guid: 99a10d818f2744f78ad9f7020cf36e38,
-    type: 2}
-  m_PrefabInternal: {fileID: 195552012}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &195552015 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1815476816251168, guid: 99a10d818f2744f78ad9f7020cf36e38,
-    type: 2}
-  m_PrefabInternal: {fileID: 195552012}
---- !u!114 &195552016 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114672407481831602, guid: 99a10d818f2744f78ad9f7020cf36e38,
-    type: 2}
-  m_PrefabInternal: {fileID: 195552012}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &195552017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 195552013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee0d181402a448039e60ddf41e65d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillUnavailable: {fileID: 21300000, guid: 480f6fd9be3804ccc853b4db0752eac7, type: 3}
-  skillAvailable: {fileID: 21300000, guid: 599ca1e460f13466eb02cb7da22b2a74, type: 3}
-  skillActive: {fileID: 21300000, guid: 9438305f98f7e418e98fe958b6be18d4, type: 3}
-  skillButton: {fileID: 195552014}
-  skillController: {fileID: 55681125}
---- !u!114 &195552018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 195552015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee0d181402a448039e60ddf41e65d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillUnavailable: {fileID: 21300000, guid: 920d369433c9e4cf7a6732e103acfec3, type: 3}
-  skillAvailable: {fileID: 21300000, guid: d50286218d2a84613a195a4702bd4c50, type: 3}
-  skillActive: {fileID: 21300000, guid: 00d6664a2f6bf4832a90dc546c277161, type: 3}
-  skillButton: {fileID: 195552016}
-  skillController: {fileID: 55681125}
 --- !u!1 &342522931
 GameObject:
   m_ObjectHideFlags: 0

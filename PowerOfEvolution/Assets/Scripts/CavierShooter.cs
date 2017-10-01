@@ -18,7 +18,7 @@ public class CavierShooter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
+       // Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
         if (Input.GetKeyDown(KeyCode.E) && (Time.time - lastShot > cavierCooldown))
         {
             lastShot = Time.time;

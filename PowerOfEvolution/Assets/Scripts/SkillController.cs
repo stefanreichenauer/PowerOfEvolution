@@ -16,10 +16,10 @@ public class SkillController : MonoBehaviour {
 
 	void Awake () 
 	{
-		legs = new Skill(2, "legs", new Skill[] {});
-		hand = new Skill(4, "hand", new Skill[] { legs });
-		horns = new Skill(8, "horns", new Skill[] { legs });
-		spikes = new Skill(16, "spikes", new Skill[] { hand, horns });
+		legs = new Skill(1, "legs", new Skill[] {});
+		hand = new Skill(1, "hand", new Skill[] { legs });
+		horns = new Skill(1, "horns", new Skill[] { legs });
+		spikes = new Skill(1, "spikes", new Skill[] { hand, horns });
 		AllSkills = new Skill[] { legs, hand, horns, spikes };
 	}
 
@@ -39,9 +39,12 @@ public class SkillController : MonoBehaviour {
 	// 1 for active
 	public int skillAvailability(string skillName) {
 		Skill skill = FindSkillByName (skillName);
-		if (player.HasSkill (skill.Name)) {
+
+        Debug.Log("SkillAvaibility: " + skillName + " - " + player.skillPoints + " - " + player.HasRequirements(skill));
+
+        if (player.HasSkill (skill.Name)) {
 			return 1;
-		} else if (player.skillPoints > skill.RequiredSkillPoints && player.HasRequirements (skill)) {
+		} else if (player.skillPoints >= skill.RequiredSkillPoints && player.HasRequirements (skill)) {
 			return 0;
 		}
 
@@ -59,6 +62,7 @@ public class SkillController : MonoBehaviour {
 
 	public void buySkill(string skillName) 
 	{
+        Debug.Log(skillName);
 		Skill skill = FindSkillByName (skillName);
 		player.decreaseSkillPoints (skill.RequiredSkillPoints);
 		player.AddSkill (skill);
