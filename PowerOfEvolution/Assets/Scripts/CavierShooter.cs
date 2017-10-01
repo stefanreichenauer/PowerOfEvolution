@@ -7,7 +7,7 @@ public class CavierShooter : MonoBehaviour {
     public GameObject cavierPrefab;
 
     float lastShot;
-    public float cavierCooldown = 1.5f;
+    public float cavierCooldown = 0.5f;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +19,7 @@ public class CavierShooter : MonoBehaviour {
 	void Update () {
 
        // Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
-        if (Input.GetKeyDown(KeyCode.E) && (Time.time - lastShot > cavierCooldown))
+		if (Input.GetKeyDown(KeyCode.E))// && (Time.time - lastShot > cavierCooldown))
         {
             FindObjectOfType<AudioManager>().Play("shoot");
             lastShot = Time.time;
@@ -27,7 +27,7 @@ public class CavierShooter : MonoBehaviour {
              newPos.y += 3;
 
             GameObject cavierBullet = Instantiate(cavierPrefab, newPos, transform.rotation);
-            cavierBullet.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 1000);
+            cavierBullet.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 3000);
 
         }
 		

@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         playerAttack = GetComponent<PlayerAttack>();
         modelChanger = GetComponent<PlayerModelChanger>();
         timeBetweenCollisionDamage = Time.time;
-        
+       // AddSkill(new Skill(1, "horns", new Skill[] { }));
     }
 	
 	// Update is called once per frame
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour {
         bool horns = HasSkill("horns");
         bool hands = HasSkill("hand");
         bool spikes = HasSkill("spikes");
-
+       // Debug.Log("AddSkill: " + legs + " - " + horns + " - " + hands + " - " + spikes);
         modelChanger.changeModel(legs, horns, hands, spikes);
     }
 
@@ -150,6 +150,23 @@ public class Player : MonoBehaviour {
                 collision.gameObject.GetComponent<Enemy>().takeDamage(10);
             }
         }
+        if (collision.gameObject.tag == "EnemyCrab")
+        {
+            if (playerAttack.chargingAttack)
+            {
+                Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+                collision.gameObject.GetComponent<EnemyCrab>().takeDamage(10);
+                playerAttack.chargingAttack = false;
+            }
+            else
+            {
+                takeDamage(10);
+            }
+            if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
+            {
+                collision.gameObject.GetComponent<EnemyCrab>().takeDamage(10);
+            }
+        }
 
         if (collision.gameObject.tag == "LevelChange")
         {
@@ -159,6 +176,25 @@ public class Player : MonoBehaviour {
 
             }
         }
+
+        if (collision.gameObject.tag == "Shell")
+        {
+            takeDamage(10);
+        }
+
+        if (collision.gameObject.tag == "TunnelBlockade" && playerAttack.chargingAttack)
+        {
+            playerAttack.chargingAttack = false;
+            Destroy(collision.gameObject);
+            StartCoroutine("LoadThirdLevel");
+        }
+        
+    }
+
+    IEnumerator LoadThirdLevel()
+    {
+        yield return new WaitForSeconds(1.0f);
+        gameController.LoadScene(2);
     }
 
     private void OnCollisionExit(Collision collision)
