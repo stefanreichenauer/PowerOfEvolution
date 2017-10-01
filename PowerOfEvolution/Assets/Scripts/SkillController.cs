@@ -40,7 +40,7 @@ public class SkillController : MonoBehaviour {
 	public int skillAvailability(string skillName) {
 		Skill skill = FindSkillByName (skillName);
 
-        Debug.Log("SkillAvaibility: " + skillName + " - " + player.skillPoints + " - " + player.HasRequirements(skill));
+       // Debug.Log("SkillAvaibility: " + skillName + " - " + player.skillPoints + " - " + player.HasRequirements(skill));
 
         if (player.HasSkill (skill.Name)) {
 			return 1;

@@ -22,6 +22,7 @@ public class movement_bird : MonoBehaviour
     private double betha_direction = 0.0;
 
     private bool beginning = true;
+    private bool uupp = true;
     //public  enemy;
     public GameObject Player;
     //private var velocity_vector = new Vector3(0f, 0f, 0f);
@@ -40,7 +41,7 @@ public class movement_bird : MonoBehaviour
 
     private int set_move()
     {
-        int direction = Random.Range(0, 2);
+        int direction = Random.Range(0, 3);
         /*if (direction == 0)
         {
             this.transform.Rotate(0, Convert.ToSingle((float)to_rotate_y_axis), 20, 0);
@@ -71,7 +72,7 @@ public class movement_bird : MonoBehaviour
 
     void moveit()
     {
-        //todo = 0;
+        //todo =1;
 
         if (agressive == false)
         {
@@ -85,7 +86,7 @@ public class movement_bird : MonoBehaviour
             }
             else
             {
-                //current_move_time = current_move_time - 1;
+                current_move_time = current_move_time - 1;
                 //calc_vector_tofollow();
 
                 if (todo == 0)
@@ -97,9 +98,9 @@ public class movement_bird : MonoBehaviour
                     this.transform.Rotate(0, Convert.ToSingle((float)-1), 0, Space.World);
                     
                     
-                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 1),
+                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 0.5),
                     0,
-                    Convert.ToSingle((float)velocity_vector_array[0] * 1));
+                    Convert.ToSingle((float)velocity_vector_array[0] * 0.5));
                     //move forward
                     this.transform.position += velocity_vector;
                 }
@@ -109,10 +110,10 @@ public class movement_bird : MonoBehaviour
                     to_rotate_y_axis = 0.001;
                     angle_y_axis = angle_y_axis + to_rotate_y_axis;
                     calc_direction_vector_y_axis();
-                    this.transform.Rotate(0, Convert.ToSingle((float)to_rotate_y_axis), 0, Space.World);
-                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 1),
+                    this.transform.Rotate(0, Convert.ToSingle((float)1), 0, Space.World);
+                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 0.5),
                     0,
-                    Convert.ToSingle((float)velocity_vector_array[0] * 1));
+                    Convert.ToSingle((float)velocity_vector_array[0] * 0.5));
                     //move forward
                     this.transform.position += velocity_vector;
 
@@ -122,9 +123,9 @@ public class movement_bird : MonoBehaviour
                 else if (todo == 2)
                 {
                     //create Vector
-                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 0.3),
+                    var velocity_vector = new Vector3(Convert.ToSingle((float)velocity_vector_array[1] * 0.5),
                     0,
-                    Convert.ToSingle((float)velocity_vector_array[0] * 0.3));
+                    Convert.ToSingle((float)velocity_vector_array[0] * 0.5));
                     //move forward
                     this.transform.position += velocity_vector;// * Geschwindigkeit * Time.deltaTime;
                 }
@@ -166,14 +167,26 @@ public class movement_bird : MonoBehaviour
         }
         moveit();
         //MonoBehaviour.print(betha);
-        if (this.transform.position.y<20)
+        if (uupp == true)
         {
-            var up = new Vector3(0, 2, 0);
+            var up = new Vector3(0, 1, 0);
             this.transform.position += up;
         }
+        else
+        {
+            var up = new Vector3(0, -1, 0);
+            this.transform.position += up;
+        }
+        if (this.transform.position.y >10)
+        {
+            uupp = false;
+        }
+        if (this.transform.position.y<5)
+        {
+            uupp = true;
+        }
 
-
-
+        
 
     }
 }
