@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         playerAttack = GetComponent<PlayerAttack>();
         modelChanger = GetComponent<PlayerModelChanger>();
         timeBetweenCollisionDamage = Time.time;
-        AddSkill(new Skill(1, "horns", new Skill[] { }));
+       // AddSkill(new Skill(1, "horns", new Skill[] { }));
     }
 	
 	// Update is called once per frame
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour {
             levelThreshold = (level + 1) * 100;
             skillPoints++;
             level++;
+            FindObjectOfType<AudioManager>().Play("level_up");
             ui.changeLevelText(level);
             ui.toggleSkillMessage(true);
         }
@@ -106,7 +107,7 @@ public class Player : MonoBehaviour {
         bool horns = HasSkill("horns");
         bool hands = HasSkill("hand");
         bool spikes = HasSkill("spikes");
-
+       // Debug.Log("AddSkill: " + legs + " - " + horns + " - " + hands + " - " + spikes);
         modelChanger.changeModel(legs, horns, hands, spikes);
     }
 
@@ -147,6 +148,23 @@ public class Player : MonoBehaviour {
             if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
             {
                 collision.gameObject.GetComponent<Enemy>().takeDamage(10);
+            }
+        }
+        if (collision.gameObject.tag == "EnemyCrab")
+        {
+            if (playerAttack.chargingAttack)
+            {
+                Debug.Log("Charging Hit: " + playerAttack.chargingAttack);
+                collision.gameObject.GetComponent<EnemyCrab>().takeDamage(10);
+                playerAttack.chargingAttack = false;
+            }
+            else
+            {
+                takeDamage(10);
+            }
+            if (HasSkill("Spikes") && Time.time - timeBetweenCollisionDamage > 1.0f)
+            {
+                collision.gameObject.GetComponent<EnemyCrab>().takeDamage(10);
             }
         }
 
