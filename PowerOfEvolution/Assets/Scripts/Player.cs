@@ -34,10 +34,6 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        skills.Add(new Skill(1, "Horns", null));
-
-        skills.Add(new Skill(1, "Spikes", null));
-
         playerAttack = GetComponent<PlayerAttack>();
         timeBetweenCollisionDamage = Time.time;
         
