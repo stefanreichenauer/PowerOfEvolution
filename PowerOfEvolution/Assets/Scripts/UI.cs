@@ -43,7 +43,7 @@ public class UI : MonoBehaviour {
 
     public void changeLevelText(int level)
     {
-        levelText.text = "" + level;
+        levelText.text = "Level: " + level;
     }
 
     public void toggleSkillMessage(bool showMessage)
