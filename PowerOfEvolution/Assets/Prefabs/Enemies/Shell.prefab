@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23459927406105470}
   - component: {fileID: 95857939856290074}
   - component: {fileID: 136158198268126004}
+  - component: {fileID: 114192227101180404}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Shell
@@ -99,6 +100,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114192227101180404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673006275319036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d195431cc0052a4cbb15db51ae6da21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  health: 10
+  experienceBase: 100
 --- !u!136 &136158198268126004
 CapsuleCollider:
   m_ObjectHideFlags: 1
