@@ -96,6 +96,7 @@ public class Player : MonoBehaviour {
 
     public void Die()
     {
+        gameController.LoadScene(4);
     }
 
 
