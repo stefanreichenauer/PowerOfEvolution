@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 7b47300936b487445b85b48fcc461cf1
+timeCreated: 1506846267
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: innereye
+    100002: innereye 1
+    100004: L_eye
+    100006: outereye
+    100008: outereye 1
+    100010: pCube1
+    100012: pCube2
+    100014: polySurface1
+    100016: polySurface2
+    100018: R_eye
+    100020: slapping_horns_still:pCube2
+    100022: slapping_horns_still:pCube3
+    100024: slapping_horns_still:polySurface1
+    100026: slapping_horns_still:polySurface2
+    100028: slapping_horns_still:transform1
+    100030: //RootNode
+    100032: transform1
+    400000: innereye
+    400002: innereye 1
+    400004: L_eye
+    400006: outereye
+    400008: outereye 1
+    400010: pCube1
+    400012: pCube2
+    400014: polySurface1
+    400016: polySurface2
+    400018: R_eye
+    400020: slapping_horns_still:pCube2
+    400022: slapping_horns_still:pCube3
+    400024: slapping_horns_still:polySurface1
+    400026: slapping_horns_still:polySurface2
+    400028: slapping_horns_still:transform1
+    400030: //RootNode
+    400032: transform1
+    2300000: innereye
+    2300002: innereye 1
+    2300004: outereye
+    2300006: outereye 1
+    2300008: pCube1
+    2300010: polySurface1
+    2300012: polySurface2
+    2300014: slapping_horns_still:pCube3
+    2300016: slapping_horns_still:polySurface1
+    2300018: slapping_horns_still:polySurface2
+    3300000: innereye
+    3300002: innereye 1
+    3300004: outereye
+    3300006: outereye 1
+    3300008: pCube1
+    3300010: polySurface1
+    3300012: polySurface2
+    3300014: slapping_horns_still:pCube3
+    3300016: slapping_horns_still:polySurface1
+    3300018: slapping_horns_still:polySurface2
+    4300000: pCube1
+    4300002: innereye
+    4300004: outereye
+    4300006: innereye
+    4300008: outereye
+    4300010: polySurface1
+    4300012: polySurface2
+    4300014: slapping_horns_still:pCube3
+    4300016: slapping_horns_still:polySurface1
+    4300018: slapping_horns_still:polySurface2
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
