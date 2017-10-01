@@ -7,6 +7,10 @@ TagManager:
   - SkillTreeLine
   - ControlsList
   - CrabSpawner
+  - EnemyBoat
+  - LevelChange
+  - Shell
+  - EnemyCrab
   layers:
   - Default
   - TransparentFX

@@ -158,6 +158,11 @@ public class Player : MonoBehaviour {
 
             }
         }
+
+        if (collision.gameObject.tag == "Shell")
+        {
+            takeDamage(10);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
