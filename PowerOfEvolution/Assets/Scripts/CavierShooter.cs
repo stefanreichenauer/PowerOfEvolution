@@ -19,7 +19,7 @@ public class CavierShooter : MonoBehaviour {
 	void Update () {
 
        // Debug.Log("CavierShooter: " + (Time.time - lastShot > cavierCooldown));
-		if (Input.GetKeyDown(KeyCode.E))// && (Time.time - lastShot > cavierCooldown))
+		if (Input.GetKeyDown(KeyCode.E) && (Time.time - lastShot > cavierCooldown))
         {
             FindObjectOfType<AudioManager>().Play("shoot");
             lastShot = Time.time;
