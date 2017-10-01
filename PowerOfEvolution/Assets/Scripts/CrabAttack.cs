@@ -40,6 +40,8 @@ public class CrabAttack : MonoBehaviour {
                 clawClosed = true;
             }
         }
+
+        aggresive = GetComponent<movement_crab>().agressive;
 	}
     
 }

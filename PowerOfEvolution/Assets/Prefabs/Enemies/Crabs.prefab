@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 114299661998070426}
   - component: {fileID: 114156961748715210}
   - component: {fileID: 114018597729847688}
+  - component: {fileID: 65535888824314648}
   m_Layer: 0
   m_Name: Crabs
   m_TagString: EnemyCrab
@@ -2021,6 +2022,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &65535888824314648
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341193273011772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.651219, y: 7.3662367, z: 8.697375}
+  m_Center: {x: 0.00000023841858, y: 3.1831183, z: 1.7890224}
 --- !u!95 &95249952740002830
 Animator:
   serializedVersion: 3
@@ -2159,7 +2172,7 @@ SphereCollider:
   m_GameObject: {fileID: 1341193273011772}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 4.69
   m_Center: {x: 0.19, y: 4.3, z: 1.71}
