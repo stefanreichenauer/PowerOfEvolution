@@ -21,9 +21,16 @@ public class CrabSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (activeCrabs.Count < 2)
+        if (activeCrabs.Count < 5)
         {
             spawnCrab();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            GameObject randomSpawnpoint = getRandomSpawnpoint();
+            GameObject spawnedCrab = Instantiate(crab, randomSpawnpoint.transform);
+
         }
     }
 
